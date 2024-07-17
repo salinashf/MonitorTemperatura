@@ -1,0 +1,8 @@
+/.vs/*
+/bk/*
+/packages/
+/WpfApp1/obj/*/
+/WpfApp1/bin/*/
+/WpfApp1/.vs/*/
+/bin/*
+/obj/*
