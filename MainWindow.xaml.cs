@@ -15,6 +15,8 @@ using OpenHardwareMonitor.Hardware;
 using System.Timers;
 using IniParser;
 using IniParser.Model;
+using System.Runtime.InteropServices;
+using System.Windows.Interop;
 
 namespace MonitorTemperatura
 {
@@ -24,12 +26,22 @@ namespace MonitorTemperatura
         public MainWindow()
         {
             UpdateText();
+            ExTransparent();
             InitializeComponent();
         }
         public void DragWindow(object sender, MouseButtonEventArgs args)
         {
             this.DragMove();
         }
+
+        public void ExTransparent() {
+
+            this.Opacity = 0.6;
+            this.IsHitTestVisible = false;
+            var hwnd = new WindowInteropHelper(this).Handle;
+            WindowsServices.SetWindowExTransparent2(hwnd);
+        }
+
 
         public String gpuvalue;
         public String cpuvalue;
@@ -98,6 +110,32 @@ namespace MonitorTemperatura
             gpu_label.Content = gpuvalue;
 
         }
+
+
+
+        public static class WindowsServices
+        {
+            const int WS_EX_TRANSPARENT = 0x00000020;
+            const int GWL_EXSTYLE = (-20);
+
+            [DllImport("user32.dll")]
+            static extern int GetWindowLong(IntPtr hwnd, int index);
+
+            [DllImport("user32.dll")]
+            static extern int SetWindowLong(IntPtr hwnd, int index, int newStyle);
+
+            public static void SetWindowExTransparent(IntPtr hwnd)     
+            {
+                var extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
+                SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle | WS_EX_TRANSPARENT);
+            }
+            public static void SetWindowExTransparent2(IntPtr hwnd)   
+            {
+                var extendedStyle = GetWindowLong(hwnd, GWL_EXSTYLE);
+                SetWindowLong(hwnd, GWL_EXSTYLE, extendedStyle & ~WS_EX_TRANSPARENT);
+            }
+        }
+
 
     }
 }
