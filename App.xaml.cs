@@ -4,9 +4,11 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace MonitorTemperatura
 {
@@ -26,7 +28,20 @@ namespace MonitorTemperatura
             {
                 this.StartupUri = new Uri("WindowsUnLocksCaps.xaml", UriKind.Relative);
             }
-          
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Detiene el temporizador y cierra la aplicación
+            DispatcherTimer timer = sender as DispatcherTimer;
+            if (timer != null)
+            {
+                timer.Stop();
+            }
+            Application.Current.Shutdown();
         }
     }
 }
