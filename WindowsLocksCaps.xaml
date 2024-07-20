@@ -1,4 +1,4 @@
-﻿<Window x:Class="MonitorTemperatura.MainWindow"
+﻿<Window x:Class="MonitorTemperatura.WindowsLocksCaps"
  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,9 +19,9 @@
 
 
         <!-- Cuerpo del candado -->
-        <Rectangle Width="63" Height="46" Fill="Gray" RadiusX="6" RadiusY="6" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,55,0,0"/>
+        <Rectangle Width="63" Height="46" Fill="Gray" RadiusX="3" RadiusY="3" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,55,0,0"/>
         <!-- Arco del candado -->
-        <Path Data="M30,20 C30,10 70,10 70,20 L70,40 L60,40 L60,20 C60,15 40,15 40,20 L40,40 L30,40 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,23,0,0" Stretch="Fill" Width="45" Height="32"/>
+        <Path Data="M30,20 C30,10 70,10 70,20 L70,40 L60,40 L60,20 C60,15 40,15 40,20 L40,40 L30,40 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,18,0,0" Stretch="Fill" Width="45" Height="37"/>
 
         <!-- Letter 'A' -->
         <TextBlock Text="A" FontSize="45"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="53" Width="32" Margin="0,46,0,0" Foreground="LightGray">
