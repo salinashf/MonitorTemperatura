@@ -12,6 +12,7 @@
         WindowStyle="None"
         Topmost = "True"
         ShowInTaskbar ="False"
+        WindowStartupLocation="CenterScreen"
         Title="Caps Lock Indicator" Height="130" Width="130" >
     <Grid>
         <!-- Background Rectangle -->

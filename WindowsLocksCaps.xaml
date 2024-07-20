@@ -11,6 +11,7 @@
         Background="Transparent"
         WindowStyle="None"
         Topmost = "True"
+        WindowStartupLocation="CenterScreen"
         ShowInTaskbar ="False"
         Title="Caps Lock Indicator" Height="130" Width="130" >
     <Grid>

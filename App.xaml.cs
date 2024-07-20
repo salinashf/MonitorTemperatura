@@ -29,7 +29,7 @@ namespace MonitorTemperatura
                 this.StartupUri = new Uri("WindowsUnLocksCaps.xaml", UriKind.Relative);
             }
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(5);
+            timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Timer_Tick;
             timer.Start();
         }
