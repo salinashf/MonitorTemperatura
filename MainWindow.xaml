@@ -7,59 +7,33 @@
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" 
         mc:Ignorable="d"
         xmlns:local="clr-namespace:MonitorTemperatura"
-        Background="Black"
         AllowsTransparency="True"
+        Background="Transparent"
         WindowStyle="None"
         Topmost = "True"
         ShowInTaskbar ="False"
-        MouseLeftButtonDown="DragWindow"
-        Title="MainWindow" Height="120.981" Width="288.653">
-    <Grid Margin="0,0,-0.2,-0.2" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="230*"/>
-            <ColumnDefinition Width="230*"/>
-        </Grid.ColumnDefinitions>
-        <Image gif:ImageBehavior.AnimatedSource="load.gif"  Opacity = "0.6" HorizontalAlignment="Left" Height="25" Margin="0,96,0,0" VerticalAlignment="Top" Width="47"/>
-        <ed:Arc ArcThickness="12"
-            ArcThicknessUnit="Pixel"     
-            EndAngle="0"
-            Fill="#101a26"
-            Opacity = "0.6"
-            StartAngle="360"
-            Stretch="None"
-            StrokeEndLineCap="Round"
-            StrokeStartLineCap="Round" Margin="30,10,15,11.2" Height="100" Width="100" />
-        <Label Name="cpu_label" Content="50" Foreground="White" HorizontalAlignment="Left" Margin="68,36,0,0" VerticalAlignment="Top" Height="25" Width="25"/>
-        <Label Foreground="White" Content="CPU" Opacity = "0.6" HorizontalAlignment="Left" Margin="60,54,0,0" VerticalAlignment="Top" FontSize="15" Height="34" Width="42"/>
-        <ed:Arc x:Name="circle_value" ArcThickness="12"
-            ArcThicknessUnit="Pixel"
-            EndAngle="0"
-            Fill="White"
-            Opacity = "0.6"
-            StartAngle="180"
-            Stretch="None"
-            StrokeEndLineCap="Round"
-            StrokeStartLineCap="Round" Margin="30,10,15,11.2" Height="100" Width="100" />
-        <ed:Arc ArcThickness="12"
-            ArcThicknessUnit="Pixel"     
-            EndAngle="0"
-            Fill="#101a26"
-            Opacity = "0.6"
-            StartAngle="360"
-            Stretch="None"
-            StrokeEndLineCap="Round"
-            StrokeStartLineCap="Round" Margin="26.6,10,17.8,11" Height="100" Width="100" Grid.Column="1" />
-        <Label Name="gpu_label" Content="50" Foreground="White" HorizontalAlignment="Left" Margin="64.6,36,0,0" VerticalAlignment="Top" Height="25" Width="25" Grid.Column="1"/>
-        <Label Foreground="White" Content="GPU" Opacity = "0.6" HorizontalAlignment="Left" Margin="56.6,54,0,0" VerticalAlignment="Top" FontSize="15" Height="34" Width="42" Grid.Column="1"/>
-        <ed:Arc Name="circle_value_Copy" ArcThickness="12"
-            ArcThicknessUnit="Pixel"
-            EndAngle="0"
-            Fill="White"
-            Opacity = "0.6"
-            StartAngle="180"
-            Stretch="None"
-            StrokeEndLineCap="Round"
-            StrokeStartLineCap="Round" Margin="26.6,10,17.8,11" Height="100" Width="100" Grid.Column="1" />
+        Title="Caps Lock Indicator" Height="130" Width="130" >
+    <Grid>
+        <!-- Background Rectangle -->
+        <Rectangle Width="100" Height="100" Fill="LightGray" RadiusX="10" RadiusY="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+        <!-- Cuerpo del candado -->
+        <Rectangle Width="63" Height="46" Fill="Gray" RadiusX="6" RadiusY="6" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,55,0,0"/>
+        <!-- Arco del candado -->
+        <Path Data="M30,20 C30,10 70,10 70,20 L70,40 L60,40 L60,20 C60,15 40,15 40,20 L40,40 L30,40 Z" Fill="Gray" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,23,0,0" Stretch="Fill" Width="45" Height="32"/>
+
+        <!-- Letter 'A' -->
+        <TextBlock Text="A" FontSize="45"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="53" Width="32" Margin="0,46,0,0" Foreground="LightGray">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.95"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.529"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
 
     </Grid>
 </Window>
